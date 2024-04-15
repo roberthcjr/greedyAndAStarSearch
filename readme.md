@@ -5,6 +5,15 @@ This project implements Greedy Best First Search and A* Search algorithms in Pyt
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
+### Conventional Commit
+This project uses [conventional commit](https://www.conventionalcommits.org/en/v1.0.0/) messages to make it easier to understand the changes made in the project.
+
+### Project Structure
+The project structure is as follows:
+- `main.py`: This file contains the main code that uses the Greedy Best First Search and A* Search algorithms.
+- `shared.distancias.py`: This file contains the graph that contains the distancies.
+- `gredyFirst.py`: This file contains the method to Greedy Best First Search
+
 ### Prerequisites
 You need to have Python installed on your machine. If you don't have Python installed, you can download it from [here](https://www.python.org/downloads/).
 
