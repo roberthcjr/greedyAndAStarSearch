@@ -10,7 +10,7 @@ def findMinorDistanceAndCity(neighbours, distancies, visited = []):
     return city, minor
 
 # Gredy Best First Search returning the path and the cost
-def gredyFirstSearch(start, goal, frontiers, distancies, visited = []):
+def greedyFirstSearch(start, goal, frontiers, distancies, visited = []):
     path = []
     cost = 0
 
@@ -22,7 +22,7 @@ def gredyFirstSearch(start, goal, frontiers, distancies, visited = []):
 
     city, minor = findMinorDistanceAndCity(neighbours, distancies, visited)
     
-    pathAux, costAux = gredyFirstSearch(city, goal, frontiers, distancies, visited)
+    pathAux, costAux = greedyFirstSearch(city, goal, frontiers, distancies, visited)
 
     path += [start] + pathAux
     cost += minor + costAux
