@@ -9,11 +9,18 @@ def gredyFirstSearch(start, goal, frontiers, distancies, visited = []):
     visited.append(start)
     neighbours = frontiers[start]
 
-    minor = distancies[list(neighbours.keys())[0]]
-    print(minor)
+    city = list(neighbours.keys())[0]
+    minor = distancies[city]
     for neighbour in neighbours:
-        if neighbour not in visited:
-            break
+        if neighbour not in visited and neighbour != city:
+            if distancies[neighbour] < minor:
+                city = neighbour
+                minor = distancies[neighbour]
+    
+    pathAux, costAux = gredyFirstSearch(city, goal, frontiers, distancies, visited)
+
+    path += [start] + pathAux
+    cost += minor + costAux
 
     return path, cost
     
