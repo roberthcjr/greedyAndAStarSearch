@@ -1,3 +1,14 @@
+def findMinorDistanceAndCity(neighbours, distancies, visited = []):
+    city = list(neighbours.keys())[0]
+    minor = distancies[city]
+    for neighbour in neighbours:
+        if neighbour not in visited and neighbour != city:
+            if distancies[neighbour] < minor:
+                city = neighbour
+                minor = distancies[neighbour]
+
+    return city, minor
+
 # Gredy Best First Search returning the path and the cost
 def gredyFirstSearch(start, goal, frontiers, distancies, visited = []):
     path = []
@@ -9,13 +20,7 @@ def gredyFirstSearch(start, goal, frontiers, distancies, visited = []):
     visited.append(start)
     neighbours = frontiers[start]
 
-    city = list(neighbours.keys())[0]
-    minor = distancies[city]
-    for neighbour in neighbours:
-        if neighbour not in visited and neighbour != city:
-            if distancies[neighbour] < minor:
-                city = neighbour
-                minor = distancies[neighbour]
+    city, minor = findMinorDistanceAndCity(neighbours, distancies, visited)
     
     pathAux, costAux = gredyFirstSearch(city, goal, frontiers, distancies, visited)
 
