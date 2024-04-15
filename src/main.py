@@ -1,12 +1,12 @@
 from searchMethods.greedyFirst import greedyFirstSearch
 from shared.distancias import distanciasRodoviarias, distanciasBucharest
 
-# Define the start and goal nodes
-start = "Arad"
+start = input("Enter the start node: ")
 goal = "Bucharest"
 
 # Call the Greedy Best First Search function
 path, cost = greedyFirstSearch(start, goal, distanciasRodoviarias, distanciasBucharest)
+path = path + [goal]
 
 # Print the path and the cost
 print("Path:", path)
