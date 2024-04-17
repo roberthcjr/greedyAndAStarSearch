@@ -1,3 +1,5 @@
+import os
+import webbrowser
 from geopy.geocoders import Nominatim
 import folium
 
@@ -27,6 +29,11 @@ def drawMap(methodA, methodB):
         tooltip=methodB["searchType"]
         ).add_to(mapOfRomenia)
     mapOfRomenia.save("map.html")
+
+def openMap(): 
+    filePath = 'file://' + os.path.realpath("map.html")
+    new = 2
+    webbrowser.open(filePath, new=new)
 
 
 
