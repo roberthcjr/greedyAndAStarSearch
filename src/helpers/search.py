@@ -1,5 +1,4 @@
-from utils.comparations import findMinorDistanceAndCity
-from utils.comparations import isAStar
+from utils.comparations import findMinorDistanceAndCity, isAStar, SEARCH_TYPES
 from utils.getters import getPathAndCost
 
 
@@ -12,7 +11,11 @@ def search(searchType, start, goal, frontiers, distancies, visited = None):
     distanciesAux = distancies.copy()
 
     if start == goal:
-        return path, cost
+        return {
+            "path": path,
+            "cost": cost,
+            "searchType": SEARCH_TYPES[searchType]
+        }
 
     visited.append(start)
     neighbours = frontiers[start]
@@ -24,8 +27,12 @@ def search(searchType, start, goal, frontiers, distancies, visited = None):
 
     city, minor = findMinorDistanceAndCity(neighbours, distanciesAux, visited)
     
-    pathAux, costAux = search(searchType, city, goal, frontiers, distancies, visited)
+    aux = search(searchType, city, goal, frontiers, distancies, visited)
 
-    path, cost = getPathAndCost(searchType, start, city, minor, neighbours, pathAux, costAux)
+    path, cost = getPathAndCost(searchType, start, city, minor, neighbours, aux["path"], aux["cost"])
 
-    return path, cost
+    return {
+            "path": path,
+            "cost": cost,
+            "searchType": SEARCH_TYPES[searchType]
+        }
