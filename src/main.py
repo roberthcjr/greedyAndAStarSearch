@@ -5,8 +5,11 @@ start = input("Enter the start node: ")
 searchType = int(input("Enter the search type (greedyFirst(0) or aStar(1)): "))
 goal = "Bucharest"
 
-path, cost = search(searchType, start, goal, distanciasRodoviarias, distanciasBucharest)
-path = path + [goal]
+greedy = search(0, start, goal, distanciasRodoviarias, distanciasBucharest)
+greedy["path"] += [goal]  
+
+aStar = search(1, start, goal, distanciasRodoviarias, distanciasBucharest)
+aStar["path"] += [goal]
 
 # Print the path and the cost
 print("Path:", path)
