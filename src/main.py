@@ -1,10 +1,10 @@
-import os
 from helpers.search import search
 from shared.distancias import distanciasRodoviarias, distanciasBucharest
-from helpers.map import drawMap
-import webbrowser
+from helpers.map import drawMap, openMap
 
-start = input("Enter the start node: ")
+start = input("Digite a cidade de origem: ")
+while start not in distanciasBucharest:
+    start = input("Cidade não encontrada, digite outra: ")
 goal = "Bucharest"
 
 greedy = search(0, start, goal, distanciasRodoviarias, distanciasBucharest)
@@ -22,7 +22,4 @@ print("A distância calculada do método guloso:", greedy["cost"])
 print("O caminho feito pelo método A*:", aStar["path"])
 print("A distância calculada do método A*:", aStar["cost"])
 
-filePath = 'file://' + os.path.realpath("map.html")
-new = 2
-
-webbrowser.open(filePath, new=new)
+openMap()
