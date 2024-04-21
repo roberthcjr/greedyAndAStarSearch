@@ -12,13 +12,14 @@ This project uses [conventional commit](https://www.conventionalcommits.org/en/v
 The project structure is as follows:
 - `src.main.py`: This file contains the main code that uses the Greedy Best First Search and A* Search algorithms.
 - `src.shared.distancias.py`: This file contains the graph that contains the distancies.
-- `src.helpers.search.py`: This file contains the method to search. Can do Greedy First Search and A* search
-- `src.helpers.map.py`: This file contains methods to create a html file with a map
-- `src.utils.comparations`: This file contains methods to define what search type is and find the minimal distance and its city
-- `src.utils.getters`: This file contains a method to get the cost and path
+- `src.shared.coordinates.py`: This file contains the coordinates for each Romenia city in this work.
+- `src.helpers.search.py`: This file contains the method to search. Can do Greedy First Search and A* search.
+- `src.helpers.map.py`: This file contains methods to create a html file with a map.
+- `src.utils.comparations`: This file contains methods to define what search type is and find the minimal distance and its city.
+- `src.utils.getters`: This file contains a method to get the cost and path.
 
 ### Prerequisites
-You need to have Python installed on your machine. If you don't have Python installed, you can download it from [here](https://www.python.org/downloads/).
+You need to have Python 3.10.12 installed on your machine. If you don't have Python 3.10.12 installed, you can download it from [here](https://www.python.org/downloads/release/python-31012/).
 
 ### Installing
 Follow the below steps to set up the project on your local machine:
