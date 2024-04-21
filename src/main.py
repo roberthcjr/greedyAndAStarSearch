@@ -13,7 +13,7 @@ greedy["path"] += [goal]
 aStar = search(1, start, goal, distanciasRodoviarias, distanciasBucharest)
 aStar["path"] += [goal]
 
-drawMap(greedy, aStar)
+drawMap(greedy, aStar, start, goal)
 
 # Print the path and the cost
 print("O caminho feito pelo método guloso:", greedy["path"])

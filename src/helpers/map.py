@@ -10,24 +10,30 @@ def locateCoordinates(city):
 
     return (location.latitude, location.longitude)
 
-def drawMap(methodA, methodB):
+def drawMap(methodA, methodB, fromCity, toCity):
     mapOfRomenia = folium.Map(location=(46, 25), zoom_start=7)
-    mapOfCoordinatesA = []
-    mapOfCoordinatesB = []
-    for city in methodA["path"]:
-        mapOfCoordinatesA.append(locateCoordinates(city))
+    mapOfCoordinatesA = [locateCoordinates(city) for city in methodA["path"]]
+    mapOfCoordinatesB = [locateCoordinates(city) for city in methodB["path"]]
     folium.PolyLine(
         mapOfCoordinatesA, 
         color = "red", 
         tooltip=methodA["searchType"]
         ).add_to(mapOfRomenia)
-    for city in methodB["path"]:
-        mapOfCoordinatesB.append(locateCoordinates(city))
     folium.PolyLine(
         mapOfCoordinatesB, 
         color = "green", 
         tooltip=methodB["searchType"]
         ).add_to(mapOfRomenia)
+    folium.Marker(
+        location=locateCoordinates(fromCity),
+        popup=fromCity,
+        icon=folium.Icon(color="black")
+    ).add_to(mapOfRomenia)
+    folium.Marker(
+        location=locateCoordinates(toCity),
+        popup=toCity,
+        icon=folium.Icon(color="blue")
+    ).add_to(mapOfRomenia)
     mapOfRomenia.save("map.html")
 
 def openMap(): 
