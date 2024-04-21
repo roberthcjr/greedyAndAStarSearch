@@ -1,14 +1,11 @@
 import os
 import webbrowser
-from geopy.geocoders import Nominatim
 import folium
+from shared.coordinates import coordinatesRomenia
 
 def locateCoordinates(city):
-    geolocator = Nominatim(user_agent="MyApp")
-
-    location = geolocator.geocode(city)
-
-    return (location.latitude, location.longitude)
+    location = coordinatesRomenia[city]
+    return (location[0], location[1])
 
 def drawMap(methodA, methodB, fromCity, toCity):
     mapOfRomenia = folium.Map(location=(46, 25), zoom_start=7)
