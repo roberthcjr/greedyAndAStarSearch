@@ -4,7 +4,7 @@ def isAStar(searchType):
     return SEARCH_TYPES[searchType] == SEARCH_TYPES[1]
 
 
-def findMinorDistanceAndCity(neighbours, distancies, visited):
+def findCityWithMinDistance(neighbours, distancies, visited):
     city = None
     min_distance = float('inf')
 
@@ -14,4 +14,4 @@ def findMinorDistanceAndCity(neighbours, distancies, visited):
                 city = neighbor
                 min_distance = distancies[neighbor]
 
-    return city, min_distance
+    return city
