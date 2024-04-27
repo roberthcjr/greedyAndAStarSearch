@@ -1,4 +1,4 @@
-<!-- Readme about gredy best first search and A* search -->
+![image](https://github.com/roberthcjr/greedyAndAStarSearch/assets/86578415/a758ae03-1baf-4f9f-85a9-3b6726a79c9b)<!-- Readme about gredy best first search and A* search -->
 # Greedy Best First Search and A* Search
 This project implements Greedy Best First Search and A* Search algorithms in Python. Both algorithms are implemented in a generic way, so they can be used for any graph and any heuristic function. The project includes a sample graph and heuristic function to demonstrate the working of the algorithms.
 
@@ -50,3 +50,4 @@ Follow the below steps to set up the project on your local machine:
 
 ## Authors
 - [Robert Junior](https://github.com/roberthcjr/)
+- [Thiago Moura](https://github.com/thiagohcm)
